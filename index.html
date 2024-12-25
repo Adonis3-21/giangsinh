@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giáng Sinh</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #d32f2f; /* Màu nền đỏ */
+            color: white;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        #gift-box {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            background: url('gift_box.png') no-repeat center center;
+            background-size: contain;
+        }
+
+        #open-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #open-btn:hover {
+            background-color: #388e3c;
+        }
+
+        .tree {
+            position: absolute;
+            width: 100px;
+            height: 150px;
+            background: url('christmas_tree.png') no-repeat center center;
+            background-size: contain;
+        }
+
+        .tree.left {
+            left: 5%;
+            bottom: 10%;
+        }
+
+        .tree.right {
+            right: 5%;
+            bottom: 10%;
+        }
+
+        /* Hiệu ứng tuyết rơi */
+        .snowflake {
+            position: fixed;
+            top: -10px;
+            width: 10px;
+            height: 10px;
+            background: white;
+            border-radius: 50%;
+            animation: snow 10s linear infinite;
+        }
+
+        @keyframes snow {
+            0% {
+                transform: translateY(0) translateX(0);
+            }
+            100% {
+                transform: translateY(100vh) translateX(50px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Trang trí cây thông Noel -->
+    <div class="tree left"></div>
+    <div class="tree right"></div>
+
+    <!-- Hộp quà -->
+    <div id="gift-box"></div>
+    <button id="open-btn" onclick="openGift()">Nhấn vào để mở món quà</button>
+
+    <!-- Tạo hiệu ứng tuyết -->
+    <script>
+        function createSnowflakes() {
+            for (let i = 0; i < 100; i++) {
+                const snowflake = document.createElement('div');
+                snowflake.classList.add('snowflake');
+                snowflake.style.left = Math.random() * window.innerWidth + 'px';
+                snowflake.style.animationDuration = (Math.random() * 5 + 5) + 's';
+                snowflake.style.opacity = Math.random();
+                document.body.appendChild(snowflake);
+            }
+        }
+
+        function openGift() {
+            window.location.href = "test.html";
+        }
+
+        createSnowflakes();
+    </script>
+</body>
+</html>

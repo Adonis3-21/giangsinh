@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lớp 12 A3 - Giáng Sinh An Lành</title>
+    <style>
+        /* Tổng quát */
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url("./Lop12A3.jpg"); /* Đường dẫn tương đối */
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            font-family: 'Arial', sans-serif;
+            color: white;
+            text-align: center;
+        }
+
+        /* Hiệu ứng tuyết rơi */
+        .snowflake {
+            position: fixed;
+            top: -10px;
+            z-index: 1000;
+            pointer-events: none;
+            animation: fall 10s linear infinite, sway 2s ease-in-out infinite alternate;
+        }
+        @keyframes fall {
+            0% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(100vh);
+            }
+        }
+        @keyframes sway {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(20px);
+            }
+        }
+
+        /* Lời chúc */
+        .message {
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 30px 50px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+        }
+        .message h1 {
+            font-size: 3.5em;
+            text-shadow: 0 0 10px #ff0000, 0 0 20px #ff7f7f, 0 0 30px #ff7f00;
+            animation: glow 1.5s infinite;
+        }
+        @keyframes glow {
+            0% {
+                text-shadow: 0 0 10px #ff0000, 0 0 20px #ff7f7f, 0 0 30px #ff7f00;
+            }
+            50% {
+                text-shadow: 0 0 20px #ff0000, 0 0 30px #ff7f00, 0 0 40px #ff7f7f;
+            }
+            100% {
+                text-shadow: 0 0 10px #ff0000, 0 0 20px #ff7f7f, 0 0 30px #ff7f00;
+            }
+        }
+
+        /* Hiệu ứng ánh sáng */
+        .twinkle {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+            box-shadow: 0 0 10px white;
+            opacity: 0.8;
+            animation: blink 2s infinite;
+        }
+        @keyframes blink {
+            0%, 100% {
+                opacity: 0.5;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="message">
+        <h1>🎄 Chúc các bạn 12A3 Giáng Sinh An Lành 🎅</h1>
+    </div>
+
+    <!-- Tuyết rơi -->
+    <script>
+        const snowflakeCount = 100;
+        for (let i = 0; i < snowflakeCount; i++) {
+            let snowflake = document.createElement("div");
+            snowflake.classList.add("snowflake");
+            snowflake.innerHTML = "❄";
+            snowflake.style.left = Math.random() * 100 + "vw";
+            snowflake.style.fontSize = Math.random() * 10 + 10 + "px";
+            snowflake.style.animationDelay = Math.random() * 5 + "s";
+            document.body.appendChild(snowflake);
+        }
+    </script>
+
+    <!-- Hiệu ứng ánh sáng nhấp nháy -->
+    <script>
+        for (let i = 0; i < 30; i++) {
+            let twinkle = document.createElement("div");
+            twinkle.classList.add("twinkle");
+            twinkle.style.width = twinkle.style.height = Math.random() * 8 + 2 + "px";
+            twinkle.style.top = Math.random() * 100 + "vh";
+            twinkle.style.left = Math.random() * 100 + "vw";
+            twinkle.style.animationDelay = Math.random() * 3 + "s";
+            document.body.appendChild(twinkle);
+        }
+    </script>
+
+    <!-- Nhạc nền -->
+    <audio autoplay loop>
+        <source src="christmas-music.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+</body>
+</html>
